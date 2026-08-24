@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mercearia | Silveira Supermercados</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&amp;family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#085300",
+                        "surface-bright": "#faf8ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f2ff",
+                        "primary-fixed": "#78ff5c",
+                        "on-tertiary-fixed": "#410001",
+                        "on-tertiary-fixed-variant": "#930005",
+                        "surface-tint": "#0d6e00",
+                        "on-surface-variant": "#3b4b35",
+                        "primary-fixed-dim": "#25e500",
+                        "surface-container-highest": "#dce1ff",
+                        "inverse-primary": "#25e500",
+                        "error": "#ba1a1a",
+                        "on-background": "#141a32",
+                        "inverse-on-surface": "#eff0ff",
+                        "outline": "#6b7c63",
+                        "surface-container-high": "#e3e7ff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#c5020c",
+                        "surface-variant": "#dce1ff",
+                        "on-secondary-container": "#e4e7ff",
+                        "on-primary-container": "#0e7100",
+                        "inverse-surface": "#292f48",
+                        "on-primary-fixed": "#012200",
+                        "primary": "#0d6e00",
+                        "surface": "#faf8ff",
+                        "surface-dim": "#d3d9f8",
+                        "tertiary-fixed-dim": "#ffb4aa",
+                        "secondary-container": "#0356ff",
+                        "secondary": "#0041c9",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#baccaf",
+                        "primary-container": "#2aff00",
+                        "tertiary-fixed": "#ffdad5",
+                        "on-surface": "#141a32",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#c0000a",
+                        "tertiary-container": "#ffd3cd",
+                        "on-secondary-fixed": "#001551",
+                        "secondary-fixed-dim": "#b6c4ff",
+                        "on-secondary-fixed-variant": "#0039b3",
+                        "secondary-fixed": "#dce1ff",
+                        "surface-container": "#ebedff",
+                        "background": "#faf8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "block-gap": "48px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "price-display": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "body-lg": ["Chivo"],
+                        "headline-lg": ["Montserrat"],
+                        "body-md": ["Chivo"],
+                        "label-bold": ["Chivo"],
+                        "headline-lg-mobile": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "price-display": ["24px", { "lineHeight": "1.0", "fontWeight": "900" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display-lg": ["72px", { "lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "900" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-bold": ["14px", { "lineHeight": "1.0", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .product-card:hover {
+            transform: scale(1.02) translate(-4px, -4px);
+            box-shadow: 4px 4px 0px 0px #141a32;
+        }
+        .brutalist-button:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0px 0px #141a32;
+        }
+        .nav-active { color: #0d6e00; text-decoration: underline; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden min-h-screen flex flex-col">
+<header class="fixed top-0 w-full z-50 flex flex-col bg-surface shadow-[4px_4px_0px_0px_rgba(20,26,50,1)] border-b-2 border-on-surface">
+<div class="bg-primary text-on-primary h-8 overflow-hidden relative flex items-center justify-center">
+<span class="font-label-bold text-label-bold">Tudo fresco. Tudo perto. · Entrega em até 1h</span>
+</div>
+<div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-margin-mobile lg:px-margin-desktop py-3">
+<a href="index.html" class="flex items-center gap-2 justify-self-start group" aria-label="Silveira Supermercados">
+<img alt="Mascote Brócolis Silveira" class="h-12 w-12 lg:h-14 lg:w-14 object-contain transition-transform group-hover:scale-105" src="assets/silveira-brocolis-mascote.png"/>
+<div class="flex flex-col leading-none">
+<span class="font-headline-lg text-[28px] lg:text-[36px] font-black tracking-tighter text-primary">SILVEIRA</span>
+<span class="font-label-bold text-[10px] lg:text-[11px] tracking-[0.18em] uppercase text-on-surface-variant mt-1">Tudo fresco. Tudo perto.</span>
+</div>
+</a>
+<nav class="hidden lg:flex gap-5 xl:gap-6 justify-self-center" aria-label="Departamentos">
+<a class="font-label-bold text-label-bold text-on-surface hover:text-primary transition-colors" href="hortifruti.html">Hortifruti</a>
+<a class="font-label-bold text-label-bold text-on-surface hover:text-primary transition-colors" href="acougue-peixaria.html">Açougue &amp; Peixaria</a>
+<a class="font-label-bold text-label-bold text-on-surface hover:text-primary transition-colors" href="padaria.html">Padaria</a>
+<a class="font-label-bold text-label-bold text-on-surface hover:text-primary transition-colors nav-active" href="mercearia.html">Mercearia</a>
+<a class="font-label-bold text-label-bold text-on-surface hover:text-primary transition-colors" href="bebidas.html">Bebidas</a>
+<a class="font-label-bold text-label-bold text-tertiary font-black underline hover:scale-105 transition-transform" href="ofertas.html">Ofertas</a>
+</nav>
+<div class="flex gap-3 lg:gap-4 items-center text-primary justify-self-end">
+<a href="favoritos.html" class="hover:scale-105 transition-transform" aria-label="Favoritos"><span class="material-symbols-outlined text-[28px]">favorite</span></a>
+<a href="busca.html" class="hover:scale-105 transition-transform" aria-label="Buscar"><span class="material-symbols-outlined text-[28px]">search</span></a>
+<a href="conta.html" class="hover:scale-105 transition-transform" aria-label="Minha conta"><span class="material-symbols-outlined text-[28px]">person</span></a>
+<a href="carrinho.html" class="hover:scale-105 transition-transform relative" aria-label="Carrinho">
+<span class="material-symbols-outlined text-[28px]">shopping_cart</span>
+<span class="absolute -top-2 -right-2 bg-tertiary text-on-tertiary font-label-bold text-[10px] w-5 h-5 flex items-center justify-center shadow-[2px_2px_0px_0px_#141a32]">3</span>
+</a>
+</div>
+</div>
+</header>
+<aside class="fixed right-0 top-1/2 -translate-y-1/2 flex flex-col gap-4 p-2 z-40 bg-primary text-on-primary rounded-l-xl border-l-4 border-on-surface shadow-[-4px_4px_0px_0px_rgba(20,26,50,1)]">
+<a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="p-2 hover:-translate-x-2 transition-all duration-300 text-on-primary hover:bg-on-primary-fixed-variant" title="WhatsApp">
+<span class="material-symbols-outlined text-[32px]">chat</span>
+</a>
+<a href="https://instagram.com/" target="_blank" rel="noopener" class="p-2 hover:-translate-x-2 transition-all duration-300 text-on-primary hover:bg-on-primary-fixed-variant" title="Instagram">
+<span class="material-symbols-outlined text-[32px]">photo_camera</span>
+</a>
+<a href="contato.html" class="p-2 hover:-translate-x-2 transition-all duration-300 text-on-primary hover:bg-on-primary-fixed-variant" title="Atendimento">
+<span class="material-symbols-outlined text-[32px]">headset_mic</span>
+</a>
+</aside>
+<main class="mt-[128px] flex-1 px-margin-mobile lg:px-margin-desktop pb-24">
+<div class="mb-10 border-b-4 border-on-surface pb-6">
+<p class="font-label-bold text-label-bold text-primary uppercase tracking-[0.2em] mb-2">Departamento</p>
+<h1 class="font-headline-lg text-headline-lg uppercase text-on-background mb-3">Mercearia</h1>
+<p class="font-body-lg text-body-lg max-w-2xl">Arroz, feijão, óleos, temperos e o essencial da despensa.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+<div class="product-card bg-white border border-on-surface relative p-4 transition-all duration-300 group">
+<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary font-label-bold text-[12px] px-2 py-1 uppercase z-10 shadow-[2px_2px_0px_0px_#141a32]">OFERTA</div>
+<a href="favoritos.html" class="absolute top-4 right-4 z-10 text-outline hover:text-tertiary" aria-label="Favoritar"><span class="material-symbols-outlined">favorite</span></a>
+<div class="h-[200px] bg-surface-container mb-4 overflow-hidden flex items-center justify-center">
+<img class="object-cover h-full w-full" alt="Arroz Tipo 1 5kg" src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&h=600&q=80"/>
+</div>
+<h3 class="font-label-bold text-label-bold mb-2">Arroz Tipo 1 5kg</h3>
+<div class="font-price-display text-price-display text-primary mb-1">R$ 24,90</div>
+<div class="font-body-md text-[12px] text-on-surface-variant mb-4">Pacote</div>
+<a href="carrinho.html" class="brutalist-button block w-full text-center bg-secondary-container text-on-secondary-container py-3 font-label-bold uppercase border border-on-surface shadow-[2px_2px_0px_0px_#141a32]">Adicionar</a>
+</div>
+
+<div class="product-card bg-white border border-on-surface relative p-4 transition-all duration-300 group">
+
+<a href="favoritos.html" class="absolute top-4 right-4 z-10 text-outline hover:text-tertiary" aria-label="Favoritar"><span class="material-symbols-outlined">favorite</span></a>
+<div class="h-[200px] bg-surface-container mb-4 overflow-hidden flex items-center justify-center">
+<img class="object-cover h-full w-full" alt="Feijão Carioca 1kg" src="https://images.unsplash.com/photo-1516684669134-de6f7c473a2a?auto=format&fit=crop&w=600&h=600&q=80"/>
+</div>
+<h3 class="font-label-bold text-label-bold mb-2">Feijão Carioca 1kg</h3>
+<div class="font-price-display text-price-display text-primary mb-1">R$ 7,49</div>
+<div class="font-body-md text-[12px] text-on-surface-variant mb-4">Pacote</div>
+<a href="carrinho.html" class="brutalist-button block w-full text-center bg-secondary-container text-on-secondary-container py-3 font-label-bold uppercase border border-on-surface shadow-[2px_2px_0px_0px_#141a32]">Adicionar</a>
+</div>
+
+<div class="product-card bg-white border border-on-surface relative p-4 transition-all duration-300 group">
+<div class="absolute top-4 left-4 bg-primary-container text-on-primary-container font-label-bold text-[12px] px-2 py-1 uppercase z-10 shadow-[2px_2px_0px_0px_#141a32]">NOVO</div>
+<a href="favoritos.html" class="absolute top-4 right-4 z-10 text-outline hover:text-tertiary" aria-label="Favoritar"><span class="material-symbols-outlined">favorite</span></a>
+<div class="h-[200px] bg-surface-container mb-4 overflow-hidden flex items-center justify-center">
+<img class="object-cover h-full w-full" alt="Azeite Extra Virgem 500ml" src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&h=600&q=80"/>
+</div>
+<h3 class="font-label-bold text-label-bold mb-2">Azeite Extra Virgem 500ml</h3>
+<div class="font-price-display text-price-display text-primary mb-1">R$ 29,90</div>
+<div class="font-body-md text-[12px] text-on-surface-variant mb-4">Garrafa</div>
+<a href="carrinho.html" class="brutalist-button block w-full text-center bg-secondary-container text-on-secondary-container py-3 font-label-bold uppercase border border-on-surface shadow-[2px_2px_0px_0px_#141a32]">Adicionar</a>
+</div>
+
+<div class="product-card bg-white border border-on-surface relative p-4 transition-all duration-300 group">
+
+<a href="favoritos.html" class="absolute top-4 right-4 z-10 text-outline hover:text-tertiary" aria-label="Favoritar"><span class="material-symbols-outlined">favorite</span></a>
+<div class="h-[200px] bg-surface-container mb-4 overflow-hidden flex items-center justify-center">
+<img class="object-cover h-full w-full" alt="Macarrão Espaguete 500g" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=600&h=600&q=80"/>
+</div>
+<h3 class="font-label-bold text-label-bold mb-2">Macarrão Espaguete 500g</h3>
+<div class="font-price-display text-price-display text-primary mb-1">R$ 4,29</div>
+<div class="font-body-md text-[12px] text-on-surface-variant mb-4">Pacote</div>
+<a href="carrinho.html" class="brutalist-button block w-full text-center bg-secondary-container text-on-secondary-container py-3 font-label-bold uppercase border border-on-surface shadow-[2px_2px_0px_0px_#141a32]">Adicionar</a>
+</div>
+</div>
+</main>
+
+<footer class="w-full py-block-gap px-margin-desktop bg-inverse-surface grid grid-cols-1 md:grid-cols-4 gap-gutter border-t-8 border-primary mt-auto relative z-10">
+<div class="md:col-span-1 flex flex-col">
+<a href="index.html" class="flex items-center gap-3 mb-4">
+<img alt="" class="h-12 w-12 object-contain" src="assets/silveira-brocolis-mascote.png"/>
+<div>
+<div class="font-headline-lg text-[32px] font-black text-primary-fixed leading-none">SILVEIRA</div>
+<p class="font-label-bold text-[11px] tracking-[0.16em] uppercase text-primary-fixed/80 mt-1">Tudo fresco. Tudo perto.</p>
+</div>
+</a>
+<p class="font-body-md text-surface-variant mb-6">Seu supermercado completo: hortifruti, açougue, padaria, mercearia e bebidas — frescos, selecionados e perto de você.</p>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-label-bold text-on-primary mb-2 uppercase">Departamentos</h4>
+<a class="font-body-md text-surface-variant hover:text-primary-fixed transition-colors" href="hortifruti.html">Hortifruti</a>
+<a class="font-body-md text-surface-variant hover:text-primary-fixed transition-colors" href="acougue-peixaria.html">Açougue &amp; Peixaria</a>
+<a class="font-body-md text-surface-variant hover:text-primary-fixed transition-colors" href="ofertas.html">Ofertas da semana</a>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-label-bold text-on-primary mb-2 uppercase">Atendimento</h4>
+<a class="font-body-md text-surface-variant hover:text-primary-fixed transition-colors" href="horarios.html">Horários das lojas</a>
+<a class="font-body-md text-surface-variant hover:text-primary-fixed transition-colors" href="trocas.html">Trocas e devoluções</a>
+<a class="font-body-md text-surface-variant hover:text-primary-fixed transition-colors" href="contato.html">Fale conosco</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-bold text-on-primary uppercase">Ofertas no e-mail</h4>
+<a href="ofertas.html" class="brutalist-button bg-primary-fixed text-on-primary-fixed font-label-bold py-2 px-4 text-center uppercase border-2 border-transparent hover:border-white inline-block">Ver ofertas da semana</a>
+</div>
+<div class="col-span-full text-center mt-12 pt-4 border-t border-surface-variant/30 text-surface-variant font-body-md">
+© 2026 Silveira Supermercados. Todos os direitos reservados.
+</div>
+</footer>
+</body></html>
