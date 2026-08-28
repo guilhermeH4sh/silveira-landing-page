@@ -1,0 +1,10 @@
+{
+  "name": "silveira-supermercados",
+  "version": "1.0.0",
+  "description": "Landing page e-commerce Silveira Supermercados",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "private": true
+}

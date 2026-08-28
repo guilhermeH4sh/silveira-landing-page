@@ -1,0 +1,17 @@
+{
+  "name": "Silveira Supermercados",
+  "short_name": "Silveira",
+  "description": "Tudo fresco. Tudo perto. Supermercado online com entrega rápida.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#faf8ff",
+  "theme_color": "#0d6e00",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "assets/silveira-brocolis-mascote.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
