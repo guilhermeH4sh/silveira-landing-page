@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://guilhermeH4sh.github.io/silveira-landing-page/sitemap.xml
