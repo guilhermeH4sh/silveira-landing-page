@@ -63,13 +63,16 @@
 <span class="material-symbols-outlined text-[32px]">headset_mic</span>
 </a>
 </aside>
-<main class="mt-[128px] flex-1 px-margin-mobile lg:px-margin-desktop pb-24 max-w-md mx-auto w-full">
+<main class="mt-[128px] flex-1 px-margin-mobile lg:px-margin-desktop pb-24 max-w-md mx-auto w-full" id="conteudo-principal">
+<p data-auth-greeting class="hidden font-label-bold text-primary mb-2"></p>
 <h1 class="font-headline-lg text-[32px] uppercase mb-6">Minha conta</h1>
-<form class="space-y-4 border-2 border-on-surface bg-white p-6" action="conta.html" method="get">
-<label class="block font-label-bold text-sm">E-mail<input type="email" required class="mt-1 w-full border border-on-surface px-3 py-2"/></label>
+<form data-login-form class="space-y-4 border-2 border-on-surface bg-white p-6" data-auth-login>
+<label class="block font-label-bold text-sm">Nome<input name="name" type="text" class="mt-1 w-full border border-on-surface px-3 py-2"/></label>
+<label class="block font-label-bold text-sm">E-mail<input name="email" type="email" required class="mt-1 w-full border border-on-surface px-3 py-2"/></label>
 <label class="block font-label-bold text-sm">Senha<input type="password" required class="mt-1 w-full border border-on-surface px-3 py-2"/></label>
 <button type="submit" class="brutalist-button w-full bg-primary text-on-primary font-label-bold py-3 uppercase border-2 border-on-surface">Entrar</button>
 </form>
+<button type="button" data-logout-btn data-auth-logout class="hidden mt-4 font-label-bold text-tertiary hover:underline">Sair da conta</button>
 <p class="mt-6 font-body-md text-on-surface-variant">Ainda não tem conta? <a href="contato.html" class="text-secondary font-label-bold hover:underline">Fale conosco</a></p>
 </main>
 <footer class="w-full py-block-gap px-margin-desktop bg-inverse-surface grid grid-cols-1 md:grid-cols-4 gap-gutter border-t-8 border-primary mt-auto relative z-10">
