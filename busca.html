@@ -65,9 +65,12 @@
 </aside>
 <main class="mt-[128px] flex-1 px-margin-mobile lg:px-margin-desktop pb-24" id="conteudo-principal">
 <h1 class="font-headline-lg text-headline-lg uppercase mb-6">Buscar produtos</h1>
-<form data-search-form class="flex gap-3 mb-8 max-w-2xl">
-<input data-search-input name="q" type="search" placeholder="Ex.: tomate, picanha, pão..." class="flex-1 border-2 border-on-surface px-4 py-3 font-body-md focus:ring-2 focus:ring-primary"/>
+<form data-search-form class="mb-8 max-w-2xl">
+<div class="flex gap-3 relative">
+<input data-search-input name="q" type="search" placeholder="Ex.: tomate, picanha, pão..." autocomplete="off" class="flex-1 border-2 border-on-surface px-4 py-3 font-body-md focus:ring-2 focus:ring-primary"/>
 <button type="submit" class="brutalist-button bg-primary text-on-primary font-label-bold px-6 uppercase border-2 border-on-surface">Buscar</button>
+<div data-search-suggestions class="hidden absolute top-full left-0 right-0 mt-1" role="listbox" aria-label="Sugestões de busca"></div>
+</div>
 </form>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-search-results></div>
 </main>
