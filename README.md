@@ -25,15 +25,17 @@ data/products.json      # Catálogo centralizado
 
 ## Funcionalidades
 
-- Catálogo por departamento (hortifruti, açougue, padaria, mercearia, bebidas)
-- Carrinho com quantidade e persistência
+- Catálogo por departamento com ordenação e filtros (preço, ofertas, novos)
+- Carrinho com quantidade, persistência e barra de frete grátis
 - Favoritos com sincronização entre páginas
-- Busca em tempo real com query string
-- Menu mobile responsivo
-- Banner LGPD de cookies
-- Toasts de feedback
-- SEO (meta tags, sitemap, robots.txt)
-- Acessibilidade (skip link, foco visível, reduced-motion)
+- Busca em tempo real com autocomplete e histórico
+- Menu mobile responsivo e header compacto ao rolar
+- Breadcrumbs semânticos nas páginas internas
+- Banner LGPD de cookies e toolbar de acessibilidade
+- Service worker para cache offline básico
+- Dados estruturados JSON-LD (Schema.org)
+- Página 404 personalizada
+- SEO (meta tags, sitemap, robots.txt, canonical, og:image)
 
 ## Desenvolvimento local
 

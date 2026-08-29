@@ -1,11 +1,24 @@
-import { addToCart, getCart, getCartCount, getCartTotal, removeFromCart, updateCartBadge, updateQty } from './cart.js';
+import { addToCart, getCart, getCartTotal, removeFromCart, updateCartBadge, updateQty } from './cart.js';
 import { getFavorites, syncFavoriteButtons, toggleFavorite } from './favorites.js';
 import { initCookieConsent } from './cookie-consent.js';
 import { initMobileNav } from './mobile-nav.js';
 import { loadProducts, getByDepartment, searchProducts } from './products.js';
-import { renderCartItem, renderProductCard } from './render.js';
+import { renderProductCard } from './render.js';
 import { showToast } from './toast.js';
 import { formatPrice } from './cart.js';
+import { initScrollHeader } from './scroll-header.js';
+import { initBreadcrumbs } from './breadcrumbs.js';
+import { initCatalogFilters } from './filters.js';
+import { injectSchema } from './schema.js';
+import { renderShippingBar } from './shipping.js';
+import { initAuthForm, syncAuthUI } from './auth.js';
+import { initBackToTop } from './back-to-top.js';
+import { initFormValidation } from './forms.js';
+import { initSearchEnhancements } from './search-enhance.js';
+import { showProductSkeleton, hideProductSkeleton } from './loading.js';
+import { initA11yToolbar } from './a11y-toolbar.js';
+import { injectSeoMeta, registerServiceWorker } from './seo-enhance.js';
+import { renderCartItem } from './render.js';
 
 async function bindCartActions(products) {
     document.addEventListener('click', (e) => {
@@ -15,6 +28,7 @@ async function bindCartActions(products) {
             if (product) {
                 addToCart(product);
                 updateCartBadge();
+                renderShippingBar();
                 showToast(`${product.name} adicionado ao carrinho`);
             }
         }
@@ -60,9 +74,13 @@ function renderDepartmentPage(products) {
     const dept = document.body.dataset.department;
     if (!container || !dept) return;
 
-    const list = getByDepartment(products, dept);
-    container.innerHTML = list.map((p) => renderProductCard(p, { compact: true })).join('');
-    syncFavoriteButtons();
+    showProductSkeleton(container);
+
+    requestAnimationFrame(() => {
+        hideProductSkeleton(container);
+        initCatalogFilters(products, () => getByDepartment(products, dept));
+        syncFavoriteButtons();
+    });
 }
 
 function renderCartPage(products) {
@@ -73,6 +91,8 @@ function renderCartPage(products) {
     if (!listEl) return;
 
     const cart = getCart();
+    renderShippingBar();
+
     if (cart.length === 0) {
         listEl.innerHTML = '';
         emptyEl?.classList.remove('hidden');
@@ -131,11 +151,8 @@ function renderSearchPage(products) {
 
 function initNewsletter() {
     document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            showToast('Cadastro realizado! Em breve você receberá nossas ofertas.');
-            form.reset();
-        });
+        form.dataset.validateForm = '';
+        form.dataset.successMessage = 'Cadastro realizado! Em breve você receberá nossas ofertas.';
     });
 }
 
@@ -154,25 +171,44 @@ function markMainContent() {
 }
 
 async function init() {
+    injectSeoMeta();
     injectSkipLink();
     markMainContent();
+    initScrollHeader();
+    initBreadcrumbs();
     initMobileNav();
     initCookieConsent();
+    initBackToTop();
+    initA11yToolbar();
+    initFormValidation();
+    initAuthForm();
+    syncAuthUI();
     updateCartBadge();
+    registerServiceWorker();
+
+    const grid = document.querySelector('[data-products-grid]');
+    if (grid) showProductSkeleton(grid);
 
     const products = await loadProducts();
+
+    if (grid) hideProductSkeleton(grid);
+
     bindCartActions(products);
     renderDepartmentPage(products);
     renderCartPage(products);
     renderFavoritesPage(products);
     renderSearchPage(products);
+    initSearchEnhancements(products);
     initNewsletter();
     syncFavoriteButtons();
+    injectSchema(products);
 
     window.addEventListener('cart:updated', () => {
         updateCartBadge();
         renderCartPage(products);
     });
+
+    window.addEventListener('auth:updated', syncAuthUI);
 }
 
 if (document.readyState === 'loading') {
