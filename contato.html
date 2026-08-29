@@ -66,10 +66,10 @@
 <main class="mt-[128px] flex-1 px-margin-mobile lg:px-margin-desktop pb-24 max-w-xl mx-auto w-full">
 <h1 class="font-headline-lg text-[32px] uppercase mb-3">Fale conosco</h1>
 <p class="font-body-lg mb-8">Dúvidas, elogios ou pedidos especiais? Nossa equipe responde rápido.</p>
-<form class="space-y-4 border-2 border-on-surface bg-white p-6" action="contato.html" method="get">
-<label class="block font-label-bold text-sm">Nome<input type="text" required class="mt-1 w-full border border-on-surface px-3 py-2"/></label>
-<label class="block font-label-bold text-sm">E-mail<input type="email" required class="mt-1 w-full border border-on-surface px-3 py-2"/></label>
-<label class="block font-label-bold text-sm">Mensagem<textarea required rows="4" class="mt-1 w-full border border-on-surface px-3 py-2"></textarea></label>
+<form data-validate-form data-success-message="Mensagem enviada! Retornaremos em breve." class="space-y-4 border-2 border-on-surface bg-white p-6">
+<label class="block font-label-bold text-sm">Nome<input name="nome" type="text" required class="mt-1 w-full border border-on-surface px-3 py-2"/></label>
+<label class="block font-label-bold text-sm">E-mail<input name="email" type="email" required class="mt-1 w-full border border-on-surface px-3 py-2"/></label>
+<label class="block font-label-bold text-sm">Mensagem<textarea name="mensagem" required rows="4" class="mt-1 w-full border border-on-surface px-3 py-2"></textarea></label>
 <button type="submit" class="brutalist-button w-full bg-primary-container text-on-primary-container font-label-bold py-3 uppercase border-2 border-on-surface">Enviar mensagem</button>
 </form>
 <p class="mt-6 font-body-md">Ou pelo WhatsApp: <a class="text-secondary font-label-bold hover:underline" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Conversar agora</a></p>
