@@ -1,11 +1,10 @@
-import { addToCart, getCart, getCartTotal, removeFromCart, updateCartBadge, updateQty } from './cart.js';
+import { addToCart, getCart, getCartTotal, removeFromCart, updateCartBadge, updateQty, clearCart, formatPrice } from './cart.js';
 import { getFavorites, syncFavoriteButtons, toggleFavorite } from './favorites.js';
 import { initCookieConsent } from './cookie-consent.js';
 import { initMobileNav } from './mobile-nav.js';
 import { loadProducts, getByDepartment, searchProducts } from './products.js';
-import { renderProductCard } from './render.js';
+import { renderProductCard, renderCartItem } from './render.js';
 import { showToast } from './toast.js';
-import { formatPrice } from './cart.js';
 import { initScrollHeader } from './scroll-header.js';
 import { initBreadcrumbs } from './breadcrumbs.js';
 import { initCatalogFilters } from './filters.js';
@@ -18,18 +17,34 @@ import { initSearchEnhancements } from './search-enhance.js';
 import { showProductSkeleton, hideProductSkeleton } from './loading.js';
 import { initA11yToolbar } from './a11y-toolbar.js';
 import { injectSeoMeta, registerServiceWorker } from './seo-enhance.js';
-import { renderCartItem } from './render.js';
+import { initProductModal } from './product-modal.js';
+import { renderRecentSection, trackRecentProduct } from './recent-products.js';
+import { initCouponForm, calcDiscount } from './coupon.js';
+import { renderOrderHistory } from './orders.js';
+import { initQuickSearch } from './quick-search.js';
+import { initAccordions } from './faq-accordion.js';
+import { initCompareBar, renderComparePage } from './compare.js';
+import { initPageAnimations } from './page-animate.js';
+import { trackEvent } from './analytics.js';
+import { loadStores, renderStoreLocator } from './store-locator.js';
+import { initCheckout } from './checkout.js';
 
 async function bindCartActions(products) {
     document.addEventListener('click', (e) => {
+        const recent = e.target.closest('[data-track-recent]');
+        if (recent) trackRecentProduct(recent.dataset.trackRecent);
+
         const addBtn = e.target.closest('[data-add-cart]');
         if (addBtn) {
             const product = products.find((p) => p.id === addBtn.dataset.addCart);
             if (product) {
                 addToCart(product);
+                trackRecentProduct(product.id);
                 updateCartBadge();
                 renderShippingBar();
+                renderCartPage(products);
                 showToast(`${product.name} adicionado ao carrinho`);
+                trackEvent('add_to_cart', { product_id: product.id });
             }
         }
 
@@ -75,7 +90,6 @@ function renderDepartmentPage(products) {
     if (!container || !dept) return;
 
     showProductSkeleton(container);
-
     requestAnimationFrame(() => {
         hideProductSkeleton(container);
         initCatalogFilters(products, () => getByDepartment(products, dept));
@@ -86,6 +100,9 @@ function renderDepartmentPage(products) {
 function renderCartPage(products) {
     const listEl = document.querySelector('[data-cart-list]');
     const totalEl = document.querySelector('[data-cart-total]');
+    const subtotalEl = document.querySelector('[data-cart-subtotal]');
+    const discountEl = document.querySelector('[data-cart-discount]');
+    const discountRow = document.querySelector('[data-cart-discount-row]');
     const emptyEl = document.querySelector('[data-cart-empty]');
     const checkoutEl = document.querySelector('[data-cart-checkout]');
     if (!listEl) return;
@@ -104,19 +121,13 @@ function renderCartPage(products) {
     emptyEl?.classList.add('hidden');
     checkoutEl?.classList.remove('hidden');
     listEl.innerHTML = cart.map(renderCartItem).join('');
-    if (totalEl) totalEl.textContent = formatPrice(getCartTotal());
-}
 
-function renderFavoritesPage(products) {
-    const container = document.querySelector('[data-favorites-grid]');
-    if (!container) return;
-
-    const ids = getFavorites();
-    const list = products.filter((p) => ids.includes(p.id));
-    container.innerHTML = list.length
-        ? list.map((p) => renderProductCard(p, { compact: true })).join('')
-        : '<p class="font-body-lg text-on-surface-variant col-span-full">Nenhum favorito ainda. Explore nossos departamentos!</p>';
-    syncFavoriteButtons();
+    const subtotal = getCartTotal();
+    const discount = calcDiscount(subtotal);
+    if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
+    if (discountEl) discountEl.textContent = `- ${formatPrice(discount)}`;
+    discountRow?.classList.toggle('hidden', discount === 0);
+    if (totalEl) totalEl.textContent = formatPrice(subtotal - discount);
 }
 
 function renderSearchPage(products) {
@@ -182,23 +193,35 @@ async function init() {
     initA11yToolbar();
     initFormValidation();
     initAuthForm();
+    initAccordions();
+    initCheckout();
     syncAuthUI();
     updateCartBadge();
     registerServiceWorker();
+    initPageAnimations();
 
     const grid = document.querySelector('[data-products-grid]');
     if (grid) showProductSkeleton(grid);
 
     const products = await loadProducts();
+    const stores = await loadStores().catch(() => []);
 
     if (grid) hideProductSkeleton(grid);
 
     bindCartActions(products);
+    initProductModal(products);
+    initQuickSearch(products);
+    initCompareBar(products);
     renderDepartmentPage(products);
     renderCartPage(products);
     renderFavoritesPage(products);
     renderSearchPage(products);
+    renderRecentSection(products);
+    renderComparePage(products);
+    renderStoreLocator(stores);
+    renderOrderHistory();
     initSearchEnhancements(products);
+    initCouponForm(() => renderCartPage(products));
     initNewsletter();
     syncFavoriteButtons();
     injectSchema(products);
@@ -209,6 +232,18 @@ async function init() {
     });
 
     window.addEventListener('auth:updated', syncAuthUI);
+}
+
+function renderFavoritesPage(products) {
+    const container = document.querySelector('[data-favorites-grid]');
+    if (!container) return;
+
+    const ids = getFavorites();
+    const list = products.filter((p) => ids.includes(p.id));
+    container.innerHTML = list.length
+        ? list.map((p) => renderProductCard(p, { compact: true })).join('')
+        : '<p class="font-body-lg text-on-surface-variant col-span-full">Nenhum favorito ainda. Explore nossos departamentos!</p>';
+    syncFavoriteButtons();
 }
 
 if (document.readyState === 'loading') {
