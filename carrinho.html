@@ -66,17 +66,30 @@
 <main class="mt-[128px] flex-1 px-margin-mobile lg:px-margin-desktop pb-24 max-w-3xl mx-auto w-full" id="conteudo-principal">
 <h1 class="font-headline-lg text-headline-lg uppercase mb-6">Seu carrinho</h1>
 <div data-shipping-bar></div>
+<form data-coupon-form class="flex gap-2 mb-4 max-w-md">
+<input name="coupon" type="text" placeholder="Cupom promocional" class="flex-1 border-2 border-on-surface px-3 py-2 font-body-md uppercase"/>
+<button type="submit" class="brutalist-button bg-primary text-on-primary font-label-bold px-4 uppercase border-2 border-on-surface text-sm">Aplicar</button>
+</form>
+<div data-coupon-display class="mb-4 text-sm"></div>
 <div data-cart-empty class="hidden border-2 border-on-surface bg-white p-8 text-center mb-6">
 <p class="font-body-lg mb-4">Seu carrinho está vazio.</p>
 <a href="ofertas.html" class="font-label-bold text-secondary hover:underline">Ver ofertas da semana</a>
 </div>
 <div class="border-2 border-on-surface bg-white p-6 mb-6 space-y-4" data-cart-list></div>
 <div data-cart-checkout class="hidden">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-bold text-sm uppercase text-on-surface-variant">Subtotal</span>
+<span class="font-body-md" data-cart-subtotal>R$ 0,00</span>
+</div>
+<div class="flex justify-between items-center mb-2 hidden" data-cart-discount-row>
+<span class="font-label-bold text-sm uppercase text-primary">Desconto</span>
+<span class="font-body-md text-primary" data-cart-discount>R$ 0,00</span>
+</div>
 <div class="flex justify-between items-center mb-8">
 <span class="font-label-bold text-label-bold uppercase">Total</span>
 <span class="font-price-display text-price-display text-primary" data-cart-total>R$ 0,00</span>
 </div>
-<a href="conta.html" class="brutalist-button inline-block bg-primary-container text-on-primary-container font-label-bold py-4 px-8 uppercase border-2 border-on-surface">Finalizar compra</a>
+<a href="checkout.html" class="brutalist-button inline-block bg-primary-container text-on-primary-container font-label-bold py-4 px-8 uppercase border-2 border-on-surface">Finalizar compra</a>
 <a href="ofertas.html" class="ml-4 font-label-bold text-secondary hover:underline">Continuar comprando</a>
 </div>
 </main>
