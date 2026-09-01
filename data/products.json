@@ -1,24 +1,214 @@
 {
   "products": [
-    { "id": "tomate-carmem", "name": "Tomate Carmem Selecionado kg", "price": 6.99, "unit": "R$ 6,99/kg", "department": "hortifruti", "badge": "OFERTA", "image": "https://images.unsplash.com/photo-1546470427-e26264be0d16?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "banana-prata", "name": "Banana Prata kg", "price": 4.49, "unit": "R$ 4,49/kg", "department": "hortifruti", "image": "https://images.unsplash.com/photo-1571771894821-ce9b6d11b4e1?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "alface-crespa", "name": "Alface Crespa unid.", "price": 3.99, "unit": "Unidade", "department": "hortifruti", "badge": "NOVO", "image": "https://images.unsplash.com/photo-1556801712-76c8eb07bbc9?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "cenoura", "name": "Cenoura Selecionada kg", "price": 5.29, "unit": "R$ 5,29/kg", "department": "hortifruti", "image": "https://images.unsplash.com/photo-1447175008436-170170753486?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "picanha", "name": "Picanha Bovina Maturatta kg", "price": 89.90, "unit": "R$ 89,90/kg", "department": "acougue", "badge": "OFERTA", "image": "https://images.unsplash.com/photo-1603048297172-c92544798d5a?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "coxa-sobrecoxa", "name": "Coxa e Sobrecoxa kg", "price": 12.90, "unit": "R$ 12,90/kg", "department": "acougue", "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "file-tilapia", "name": "Filé de Tilápia kg", "price": 34.90, "unit": "R$ 34,90/kg", "department": "acougue", "badge": "NOVO", "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "linguica-toscana", "name": "Linguiça Toscana kg", "price": 22.90, "unit": "R$ 22,90/kg", "department": "acougue", "image": "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "pao-natural", "name": "Pão de Fermentação Natural 500g", "price": 14.50, "unit": "Unidade", "department": "padaria", "badge": "NOVO", "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "pao-frances", "name": "Pão Francês kg", "price": 15.90, "unit": "R$ 15,90/kg", "department": "padaria", "image": "https://images.unsplash.com/photo-1608198093002-ad4e00561cbb?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "bolo-cenoura", "name": "Bolo de Cenoura fatia", "price": 8.90, "unit": "Unidade", "department": "padaria", "badge": "OFERTA", "image": "https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "croissant", "name": "Croissant Manteiga unid.", "price": 6.50, "unit": "Unidade", "department": "padaria", "image": "https://images.unsplash.com/photo-1623334044303-241021148842?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "arroz-5kg", "name": "Arroz Tipo 1 5kg", "price": 24.90, "unit": "Pacote", "department": "mercearia", "badge": "OFERTA", "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "feijao-carioca", "name": "Feijão Carioca 1kg", "price": 7.49, "unit": "Pacote", "department": "mercearia", "image": "https://images.unsplash.com/photo-1516684669134-de6f7c473a2a?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "azeite", "name": "Azeite Extra Virgem 500ml", "price": 29.90, "unit": "Garrafa", "department": "mercearia", "badge": "NOVO", "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "macarrao", "name": "Macarrão Espaguete 500g", "price": 4.29, "unit": "Pacote", "department": "mercearia", "image": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "agua-mineral", "name": "Água Mineral 1,5L", "price": 2.49, "unit": "Garrafa", "department": "bebidas", "image": "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "suco-laranja", "name": "Suco de Laranja 1L", "price": 9.90, "unit": "Caixa", "department": "bebidas", "badge": "OFERTA", "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "refrigerante-cola", "name": "Refrigerante Cola 2L", "price": 8.49, "unit": "Garrafa", "department": "bebidas", "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=600&h=600&q=80" },
-    { "id": "cerveja-longneck", "name": "Cerveja Long Neck 355ml", "price": 5.99, "unit": "Unidade", "department": "bebidas", "badge": "NOVO", "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=600&h=600&q=80" }
+    {
+      "id": "tomate-carmem",
+      "name": "Tomate Carmem Selecionado kg",
+      "price": 6.99,
+      "unit": "R$ 6,99/kg",
+      "department": "hortifruti",
+      "badge": "OFERTA",
+      "image": "https://images.unsplash.com/photo-1546470427-e26264be0d16?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "baixo",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "banana-prata",
+      "name": "Banana Prata kg",
+      "price": 4.49,
+      "unit": "R$ 4,49/kg",
+      "department": "hortifruti",
+      "image": "https://images.unsplash.com/photo-1571771894821-ce9b6d11b4e1?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "alface-crespa",
+      "name": "Alface Crespa unid.",
+      "price": 3.99,
+      "unit": "Unidade",
+      "department": "hortifruti",
+      "badge": "NOVO",
+      "image": "https://images.unsplash.com/photo-1556801712-76c8eb07bbc9?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "cenoura",
+      "name": "Cenoura Selecionada kg",
+      "price": 5.29,
+      "unit": "R$ 5,29/kg",
+      "department": "hortifruti",
+      "image": "https://images.unsplash.com/photo-1447175008436-170170753486?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "picanha",
+      "name": "Picanha Bovina Maturatta kg",
+      "price": 89.9,
+      "unit": "R$ 89,90/kg",
+      "department": "acougue",
+      "badge": "OFERTA",
+      "image": "https://images.unsplash.com/photo-1603048297172-c92544798d5a?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "coxa-sobrecoxa",
+      "name": "Coxa e Sobrecoxa kg",
+      "price": 12.9,
+      "unit": "R$ 12,90/kg",
+      "department": "acougue",
+      "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "baixo",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "file-tilapia",
+      "name": "Filé de Tilápia kg",
+      "price": 34.9,
+      "unit": "R$ 34,90/kg",
+      "department": "acougue",
+      "badge": "NOVO",
+      "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "linguica-toscana",
+      "name": "Linguiça Toscana kg",
+      "price": 22.9,
+      "unit": "R$ 22,90/kg",
+      "department": "acougue",
+      "image": "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "pao-natural",
+      "name": "Pão de Fermentação Natural 500g",
+      "price": 14.5,
+      "unit": "Unidade",
+      "department": "padaria",
+      "badge": "NOVO",
+      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "pao-frances",
+      "name": "Pão Francês kg",
+      "price": 15.9,
+      "unit": "R$ 15,90/kg",
+      "department": "padaria",
+      "image": "https://images.unsplash.com/photo-1608198093002-ad4e00561cbb?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "bolo-cenoura",
+      "name": "Bolo de Cenoura fatia",
+      "price": 8.9,
+      "unit": "Unidade",
+      "department": "padaria",
+      "badge": "OFERTA",
+      "image": "https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "baixo",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "croissant",
+      "name": "Croissant Manteiga unid.",
+      "price": 6.5,
+      "unit": "Unidade",
+      "department": "padaria",
+      "image": "https://images.unsplash.com/photo-1623334044303-241021148842?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "arroz-5kg",
+      "name": "Arroz Tipo 1 5kg",
+      "price": 24.9,
+      "unit": "Pacote",
+      "department": "mercearia",
+      "badge": "OFERTA",
+      "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "feijao-carioca",
+      "name": "Feijão Carioca 1kg",
+      "price": 7.49,
+      "unit": "Pacote",
+      "department": "mercearia",
+      "image": "https://images.unsplash.com/photo-1516684669134-de6f7c473a2a?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "azeite",
+      "name": "Azeite Extra Virgem 500ml",
+      "price": 29.9,
+      "unit": "Garrafa",
+      "department": "mercearia",
+      "badge": "NOVO",
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "macarrao",
+      "name": "Macarrão Espaguete 500g",
+      "price": 4.29,
+      "unit": "Pacote",
+      "department": "mercearia",
+      "image": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "baixo",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "agua-mineral",
+      "name": "Água Mineral 1,5L",
+      "price": 2.49,
+      "unit": "Garrafa",
+      "department": "bebidas",
+      "image": "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "suco-laranja",
+      "name": "Suco de Laranja 1L",
+      "price": 9.9,
+      "unit": "Caixa",
+      "department": "bebidas",
+      "badge": "OFERTA",
+      "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "refrigerante-cola",
+      "name": "Refrigerante Cola 2L",
+      "price": 8.49,
+      "unit": "Garrafa",
+      "department": "bebidas",
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    },
+    {
+      "id": "cerveja-longneck",
+      "name": "Cerveja Long Neck 355ml",
+      "price": 5.99,
+      "unit": "Unidade",
+      "department": "bebidas",
+      "badge": "NOVO",
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=600&h=600&q=80",
+      "stock": "disponivel",
+      "description": "Produto selecionado Silveira, qualidade garantida."
+    }
   ]
 }
