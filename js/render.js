@@ -9,6 +9,14 @@ function badgeHtml(badge) {
     return `<div class="absolute top-4 left-4 ${cls} font-label-bold text-[12px] px-2 py-1 uppercase z-10 shadow-[2px_2px_0px_0px_#141a32]">${badge}</div>`;
 }
 
+function stockHtml(stock) {
+    if (!stock) return '';
+    const low = stock === 'baixo';
+    const cls = low ? 'text-tertiary' : 'text-primary';
+    const label = low ? 'Estoque baixo' : 'Em estoque';
+    return `<p class="font-label-bold text-[11px] ${cls} uppercase mb-2">${label}</p>`;
+}
+
 export function renderProductCard(product, options = {}) {
     const { compact = false } = options;
     const width = compact ? 'w-full' : 'flex-none w-[300px] snap-start';
@@ -26,15 +34,22 @@ export function renderProductCard(product, options = {}) {
         <button type="button" data-favorite-id="${product.id}" class="absolute top-4 right-4 z-10 text-outline hover:text-tertiary" aria-label="Favoritar ${product.name}" aria-pressed="false">
             <span class="material-symbols-outlined">favorite</span>
         </button>
-        <a href="${deptHref}" class="block h-[200px] bg-surface-container mb-4 overflow-hidden">
+        <button type="button" data-product-detail="${product.id}" class="absolute top-14 right-4 z-10 text-outline hover:text-primary text-xs font-label-bold" aria-label="Detalhes">+ info</button>
+        <a href="${deptHref}" class="block h-[200px] bg-surface-container mb-4 overflow-hidden" data-track-recent="${product.id}">
             <img class="object-cover h-full w-full" alt="${product.name}" src="${product.image}" loading="lazy" decoding="async" width="300" height="200"/>
         </a>
-        <h3 class="font-label-bold text-label-bold mb-2">${product.name}</h3>
+        <h3 class="font-label-bold text-label-bold mb-1">${product.name}</h3>
+        ${stockHtml(product.stock)}
         <div class="font-price-display text-price-display text-primary mb-1">${formatPrice(product.price)}</div>
-        <div class="font-body-md text-[12px] text-on-surface-variant mb-4">${product.unit}</div>
-        <button type="button" data-add-cart="${product.id}" class="brutalist-button w-full bg-secondary-container text-on-secondary-container py-3 font-label-bold uppercase border border-on-surface shadow-[2px_2px_0px_0px_#141a32] group-hover:block${compact ? '' : ' hidden'}">
-            Adicionar
-        </button>
+        <div class="font-body-md text-[12px] text-on-surface-variant mb-3">${product.unit}</div>
+        <div class="flex gap-2">
+            <button type="button" data-add-cart="${product.id}" class="brutalist-button flex-1 bg-secondary-container text-on-secondary-container py-3 font-label-bold uppercase border border-on-surface shadow-[2px_2px_0px_0px_#141a32] text-sm">
+                Adicionar
+            </button>
+            <button type="button" data-compare-id="${product.id}" class="px-3 py-3 border-2 border-on-surface font-label-bold text-xs uppercase" aria-label="Comparar" title="Comparar">
+                <span class="material-symbols-outlined text-[18px]">compare_arrows</span>
+            </button>
+        </div>
     </article>`;
 }
 
