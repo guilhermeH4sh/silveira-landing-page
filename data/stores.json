@@ -1,0 +1,28 @@
+{
+  "stores": [
+    {
+      "id": "centro",
+      "name": "Silveira Centro",
+      "address": "Av. Principal, 1200 — Centro",
+      "hours": "Seg–Sáb 7h–22h · Dom 8h–20h",
+      "phone": "(11) 3000-0000",
+      "services": ["Retirada", "Açougue", "Padaria"]
+    },
+    {
+      "id": "norte",
+      "name": "Silveira Norte",
+      "address": "Rua das Flores, 450 — Jardim Norte",
+      "hours": "Seg–Sáb 7h–21h · Dom 8h–18h",
+      "phone": "(11) 3000-0001",
+      "services": ["Retirada", "Estacionamento"]
+    },
+    {
+      "id": "shopping",
+      "name": "Silveira Shopping",
+      "address": "Shopping Vale, Loja 42 — Piso 1",
+      "hours": "Seg–Dom 10h–22h",
+      "phone": "(11) 3000-0002",
+      "services": ["Retirada", "Padaria", "Bebidas geladas"]
+    }
+  ]
+}
