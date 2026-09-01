@@ -243,6 +243,23 @@ img[loading="lazy"] {
     overflow-y: auto;
 }
 
+@keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-fade-in {
+    animation: pageFadeIn 0.5s ease both;
+}
+
+.product-modal.hidden {
+    display: none !important;
+}
+
+.quick-search.hidden {
+    display: none !important;
+}
+
 @media print {
     header,
     aside,
