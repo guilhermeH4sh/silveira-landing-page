@@ -1,4 +1,11 @@
 import { formatPrice } from './cart.js';
+import { renderCardRating } from './reviews.js';
+
+let reviewsMap = {};
+
+export function setReviewsForRender(reviews) {
+    reviewsMap = reviews || {};
+}
 
 function badgeHtml(badge) {
     if (!badge) return '';
@@ -39,6 +46,7 @@ export function renderProductCard(product, options = {}) {
             <img class="object-cover h-full w-full" alt="${product.name}" src="${product.image}" loading="lazy" decoding="async" width="300" height="200"/>
         </a>
         <h3 class="font-label-bold text-label-bold mb-1">${product.name}</h3>
+        ${renderCardRating(reviewsMap, product.id)}
         ${stockHtml(product.stock)}
         <div class="font-price-display text-price-display text-primary mb-1">${formatPrice(product.price)}</div>
         <div class="font-body-md text-[12px] text-on-surface-variant mb-3">${product.unit}</div>
