@@ -1,0 +1,23 @@
+{
+  "tomate-carmem": [
+    { "author": "Ana P.", "rating": 5, "comment": "Sempre maduros e doces. Entrega rápida!" },
+    { "author": "Carlos M.", "rating": 4, "comment": "Boa qualidade, embalagem cuidadosa." }
+  ],
+  "picanha": [
+    { "author": "Roberto S.", "rating": 5, "comment": "Excelente para churrasco. Macia e saborosa." },
+    { "author": "Juliana F.", "rating": 5, "comment": "Vale cada centavo. Padrão Silveira." }
+  ],
+  "pao-natural": [
+    { "author": "Marina L.", "rating": 5, "comment": "Casca crocante, miolo macio. Fresh diário." },
+    { "author": "Pedro H.", "rating": 4, "comment": "Muito bom, só gostaria de mais opções de grãos." }
+  ],
+  "banana-prata": [
+    { "author": "Lucia A.", "rating": 5, "comment": "Pontinho certo, nunca chega verde demais." }
+  ],
+  "alcatra": [
+    { "author": "Fernando T.", "rating": 4, "comment": "Corte limpo e frescor garantido." }
+  ],
+  "cerveja-artesanal": [
+    { "author": "Diego R.", "rating": 5, "comment": "Seleção ótima, gelada na entrega." }
+  ]
+}
