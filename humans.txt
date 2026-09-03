@@ -1,0 +1,10 @@
+/* TEAM */
+Developer: Guilherme Ferreira
+Site: https://guilhermeH4sh.github.io/silveira-landing-page/
+GitHub: https://github.com/guilhermeH4sh/silveira-landing-page
+
+/* SITE */
+Standards: HTML5, CSS3, ES Modules
+Components: Tailwind CDN, Material Symbols
+Language: Portuguese (Brazil)
+Last update: 2026-09
