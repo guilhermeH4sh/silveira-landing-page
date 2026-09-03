@@ -3,7 +3,7 @@ import { getFavorites, syncFavoriteButtons, toggleFavorite } from './favorites.j
 import { initCookieConsent } from './cookie-consent.js';
 import { initMobileNav } from './mobile-nav.js';
 import { loadProducts, getByDepartment, searchProducts } from './products.js';
-import { renderProductCard, renderCartItem } from './render.js';
+import { renderProductCard, renderCartItem, setReviewsForRender } from './render.js';
 import { showToast } from './toast.js';
 import { initScrollHeader } from './scroll-header.js';
 import { initBreadcrumbs } from './breadcrumbs.js';
@@ -28,6 +28,16 @@ import { initPageAnimations } from './page-animate.js';
 import { trackEvent } from './analytics.js';
 import { loadStores, renderStoreLocator } from './store-locator.js';
 import { initCheckout } from './checkout.js';
+import { initMiniCart } from './mini-cart.js';
+import { initWhatsAppShare } from './whatsapp-share.js';
+import { initPrintList } from './print-list.js';
+import { loadReviews } from './reviews.js';
+import { initDeliverySlot } from './delivery-slot.js';
+import { initInstallPrompt } from './install-prompt.js';
+import { initCartReminder } from './cart-reminder.js';
+import { initPrefetch } from './prefetch.js';
+import { initErrorHandler } from './error-handler.js';
+import { initShareProduct } from './share-product.js';
 
 async function bindCartActions(products) {
     document.addEventListener('click', (e) => {
@@ -182,6 +192,7 @@ function markMainContent() {
 }
 
 async function init() {
+    initErrorHandler();
     injectSeoMeta();
     injectSkipLink();
     markMainContent();
@@ -199,19 +210,31 @@ async function init() {
     updateCartBadge();
     registerServiceWorker();
     initPageAnimations();
+    initPrefetch();
+    initInstallPrompt();
+    initMiniCart();
+    initCartReminder();
 
     const grid = document.querySelector('[data-products-grid]');
     if (grid) showProductSkeleton(grid);
 
-    const products = await loadProducts();
-    const stores = await loadStores().catch(() => []);
+    const [products, stores, reviews] = await Promise.all([
+        loadProducts(),
+        loadStores().catch(() => []),
+        loadReviews(),
+    ]);
 
+    setReviewsForRender(reviews);
     if (grid) hideProductSkeleton(grid);
 
     bindCartActions(products);
-    initProductModal(products);
+    initProductModal(products, reviews);
     initQuickSearch(products);
     initCompareBar(products);
+    initShareProduct(products);
+    initWhatsAppShare();
+    initPrintList();
+    initDeliverySlot();
     renderDepartmentPage(products);
     renderCartPage(products);
     renderFavoritesPage(products);

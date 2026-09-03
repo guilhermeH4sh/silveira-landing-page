@@ -1,13 +1,16 @@
-const CACHE = 'silveira-v1';
+const CACHE = 'silveira-v2';
 const ASSETS = [
-    '/',
-    '/index.html',
-    '/css/styles.css',
-    '/js/app.js',
-    '/js/tailwind-config.js',
-    '/data/products.json',
-    '/assets/silveira-brocolis-mascote.png',
-    '/manifest.json',
+    './',
+    './index.html',
+    './css/styles.css',
+    './js/app.js',
+    './js/tailwind-config.js',
+    './data/products.json',
+    './data/stores.json',
+    './data/reviews.json',
+    './assets/silveira-brocolis-mascote.png',
+    './manifest.json',
+    './offline.html',
 ];
 
 self.addEventListener('install', (event) => {
@@ -28,13 +31,15 @@ self.addEventListener('fetch', (event) => {
     if (event.request.method !== 'GET') return;
     event.respondWith(
         caches.match(event.request).then((cached) =>
-            cached || fetch(event.request).then((response) => {
-                if (response.ok && event.request.url.startsWith(self.location.origin)) {
-                    const clone = response.clone();
-                    caches.open(CACHE).then((cache) => cache.put(event.request, clone));
-                }
-                return response;
-            }).catch(() => cached)
+            fetch(event.request)
+                .then((response) => {
+                    if (response.ok && event.request.url.startsWith(self.location.origin)) {
+                        const clone = response.clone();
+                        caches.open(CACHE).then((cache) => cache.put(event.request, clone));
+                    }
+                    return response;
+                })
+                .catch(() => cached || caches.match('./offline.html'))
         )
     );
 });

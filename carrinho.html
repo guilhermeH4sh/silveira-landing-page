@@ -71,6 +71,7 @@
 <button type="submit" class="brutalist-button bg-primary text-on-primary font-label-bold px-4 uppercase border-2 border-on-surface text-sm">Aplicar</button>
 </form>
 <div data-coupon-display class="mb-4 text-sm"></div>
+<div data-delivery-slots class="mb-6 border-2 border-on-surface bg-white p-4"></div>
 <div data-cart-empty class="hidden border-2 border-on-surface bg-white p-8 text-center mb-6">
 <p class="font-body-lg mb-4">Seu carrinho está vazio.</p>
 <a href="ofertas.html" class="font-label-bold text-secondary hover:underline">Ver ofertas da semana</a>
@@ -85,9 +86,17 @@
 <span class="font-label-bold text-sm uppercase text-primary">Desconto</span>
 <span class="font-body-md text-primary" data-cart-discount>R$ 0,00</span>
 </div>
-<div class="flex justify-between items-center mb-8">
+<div class="flex justify-between items-center mb-6">
 <span class="font-label-bold text-label-bold uppercase">Total</span>
 <span class="font-price-display text-price-display text-primary" data-cart-total>R$ 0,00</span>
+</div>
+<div class="flex flex-wrap gap-3 mb-6">
+<button type="button" data-whatsapp-cart class="brutalist-button inline-flex items-center gap-2 bg-white text-on-surface font-label-bold py-3 px-4 uppercase border-2 border-on-surface text-sm">
+<span class="material-symbols-outlined text-[20px]">chat</span> Enviar no WhatsApp
+</button>
+<button type="button" data-print-list class="brutalist-button inline-flex items-center gap-2 bg-white text-on-surface font-label-bold py-3 px-4 uppercase border-2 border-on-surface text-sm">
+<span class="material-symbols-outlined text-[20px]">print</span> Imprimir lista
+</button>
 </div>
 <a href="checkout.html" class="brutalist-button inline-block bg-primary-container text-on-primary-container font-label-bold py-4 px-8 uppercase border-2 border-on-surface">Finalizar compra</a>
 <a href="ofertas.html" class="ml-4 font-label-bold text-secondary hover:underline">Continuar comprando</a>

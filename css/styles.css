@@ -260,6 +260,64 @@ img[loading="lazy"] {
     display: none !important;
 }
 
+/* Mini carrinho */
+.mini-cart.hidden {
+    display: none !important;
+}
+
+.mini-cart {
+    position: fixed;
+    inset: 0;
+    z-index: 110;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mini-cart__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 26, 50, 0.55);
+}
+
+.mini-cart__panel {
+    position: relative;
+    width: min(400px, 100%);
+    height: 100%;
+    background: #fff;
+    border-left: 4px solid #141a32;
+    box-shadow: -8px 0 0 #2aff00;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    animation: miniCartIn 0.25s ease;
+}
+
+@keyframes miniCartIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+/* Banner PWA */
+.install-banner {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 90;
+    width: min(560px, calc(100% - 2rem));
+    background: #fff;
+    border: 3px solid #141a32;
+    box-shadow: 6px 6px 0 #0d6e00;
+    padding: 1rem 1.25rem;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 @media print {
     header,
     aside,
