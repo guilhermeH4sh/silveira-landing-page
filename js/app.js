@@ -38,6 +38,19 @@ import { initCartReminder } from './cart-reminder.js';
 import { initPrefetch } from './prefetch.js';
 import { initErrorHandler } from './error-handler.js';
 import { initShareProduct } from './share-product.js';
+import { initNetworkStatus } from './network-status.js';
+import { initCepLookup } from './cep-lookup.js';
+import { initViewToggle } from './view-toggle.js';
+import { initKeyboardHelp } from './keyboard-help.js';
+import { initImageZoom } from './image-zoom.js';
+import { initCopyCoupons } from './copy-coupon.js';
+import { loadRecipes, renderRecipes } from './recipes.js';
+import { initExportCart } from './export-cart.js';
+import { initWelcomeTip } from './welcome-tip.js';
+import { initReadingProgress } from './reading-progress.js';
+import { initCheckoutCelebrate } from './checkout-celebrate.js';
+import { initUrlFilters } from './url-filters.js';
+import { initStockUrgency } from './stock-urgency.js';
 
 async function bindCartActions(products) {
     document.addEventListener('click', (e) => {
@@ -193,6 +206,7 @@ function markMainContent() {
 
 async function init() {
     initErrorHandler();
+    initNetworkStatus();
     injectSeoMeta();
     injectSkipLink();
     markMainContent();
@@ -206,6 +220,8 @@ async function init() {
     initAuthForm();
     initAccordions();
     initCheckout();
+    initCepLookup();
+    initCheckoutCelebrate();
     syncAuthUI();
     updateCartBadge();
     registerServiceWorker();
@@ -214,14 +230,19 @@ async function init() {
     initInstallPrompt();
     initMiniCart();
     initCartReminder();
+    initKeyboardHelp();
+    initImageZoom();
+    initReadingProgress();
+    initWelcomeTip();
 
     const grid = document.querySelector('[data-products-grid]');
     if (grid) showProductSkeleton(grid);
 
-    const [products, stores, reviews] = await Promise.all([
+    const [products, stores, reviews, recipes] = await Promise.all([
         loadProducts(),
         loadStores().catch(() => []),
         loadReviews(),
+        loadRecipes().catch(() => []),
     ]);
 
     setReviewsForRender(reviews);
@@ -234,14 +255,20 @@ async function init() {
     initShareProduct(products);
     initWhatsAppShare();
     initPrintList();
+    initExportCart();
     initDeliverySlot();
+    initCopyCoupons();
     renderDepartmentPage(products);
+    initViewToggle();
+    initUrlFilters();
+    initStockUrgency();
     renderCartPage(products);
     renderFavoritesPage(products);
     renderSearchPage(products);
     renderRecentSection(products);
     renderComparePage(products);
     renderStoreLocator(stores);
+    renderRecipes(recipes, products);
     renderOrderHistory();
     initSearchEnhancements(products);
     initCouponForm(() => renderCartPage(products));
