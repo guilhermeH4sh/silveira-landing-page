@@ -1,0 +1,43 @@
+{
+  "recipes": [
+    {
+      "id": "salada-verao",
+      "title": "Salada de verão Silveira",
+      "time": "15 min",
+      "servings": 2,
+      "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&h=500&q=80",
+      "ingredients": ["tomate-carmem", "alface-crespa", "cenoura"],
+      "steps": [
+        "Lave bem as folhas e os vegetais.",
+        "Corte o tomate e a cenoura em fatias finas.",
+        "Misture com azeite, sal e sirva fresco."
+      ]
+    },
+    {
+      "id": "churrasco-rapido",
+      "title": "Churrasco rápido de fim de semana",
+      "time": "40 min",
+      "servings": 4,
+      "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=500&q=80",
+      "ingredients": ["picanha", "alcatra"],
+      "steps": [
+        "Tempere as carnes com sal grosso 30 minutos antes.",
+        "Grelhe em fogo médio até o ponto desejado.",
+        "Descanse 5 minutos antes de fatiar."
+      ]
+    },
+    {
+      "id": "cafe-da-manha",
+      "title": "Café da manhã completo",
+      "time": "10 min",
+      "servings": 2,
+      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&h=500&q=80",
+      "ingredients": ["pao-natural", "banana-prata"],
+      "steps": [
+        "Torre o pão de fermentação natural.",
+        "Sirva com banana fatiada e um fio de mel.",
+        "Acompanhe com café ou suco da casa."
+      ]
+    }
+  ]
+}
