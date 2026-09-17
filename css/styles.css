@@ -449,6 +449,102 @@ kbd {
     50% { opacity: 0.55; }
 }
 
+/* Tema escuro */
+html[data-theme='dark'] body {
+    background: #0b1020;
+    color: #e8ecff;
+}
+
+html[data-theme='dark'] .bg-white,
+html[data-theme='dark'] .bg-surface,
+html[data-theme='dark'] .bg-background,
+html[data-theme='dark'] .bg-surface-container {
+    background-color: #141b33 !important;
+}
+
+html[data-theme='dark'] .text-on-surface,
+html[data-theme='dark'] .text-on-background {
+    color: #e8ecff !important;
+}
+
+html[data-theme='dark'] .text-on-surface-variant {
+    color: #a9b4d6 !important;
+}
+
+html[data-theme='dark'] .border-on-surface {
+    border-color: #4a5680 !important;
+}
+
+html[data-theme='dark'] .text-primary {
+    color: #4ee03a !important;
+}
+
+html[data-theme='dark'] img:not([alt='']) {
+    filter: brightness(0.92);
+}
+
+/* Lazy images */
+.img-fade {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.img-fade.img-loaded {
+    opacity: 1;
+}
+
+/* Timeline de pedido */
+.order-timeline {
+    display: grid;
+    gap: 0.75rem;
+}
+.order-timeline__step {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-left: 0.75rem;
+    border-left: 4px solid #baccaf;
+    color: #6b7c63;
+}
+.order-timeline__step.is-done {
+    border-left-color: #0d6e00;
+    color: #141a32;
+}
+.order-timeline__step.is-done .material-symbols-outlined {
+    color: #0d6e00;
+}
+
+/* Fidelidade */
+.loyalty-tier {
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border: 2px solid #141a32;
+}
+.loyalty-tier--bronze { background: #e7c9a9; }
+.loyalty-tier--prata { background: #dfe3ee; }
+.loyalty-tier--ouro { background: #ffd977; }
+
+.loyalty-bar {
+    height: 12px;
+    border: 2px solid #141a32;
+    background: #fff;
+}
+.loyalty-bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #0d6e00, #2aff00);
+}
+
+/* Avise-me quando repor */
+.notify-stock-btn {
+    display: inline-block;
+    margin-bottom: 0.4rem;
+}
+.notify-stock-btn[aria-pressed='true'] {
+    color: #0d6e00;
+}
+
 /* Celebração checkout */
 .celebrate-layer {
     pointer-events: none;

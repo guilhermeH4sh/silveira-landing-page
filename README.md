@@ -21,20 +21,28 @@ js/products.js          # Carregamento do catálogo
 js/render.js            # Renderização de componentes
 js/app.js               # Bootstrap da aplicação
 data/products.json      # Catálogo centralizado
+data/reviews.json       # Avaliações por SKU
+data/recipes.json       # Receitas com ingredientes do catálogo
+data/stores.json        # Unidades físicas
+scripts/validate.mjs    # Smoke check de JSON, links e imports
 ```
 
 ## Funcionalidades
 
-- Catálogo por departamento com ordenação e filtros (preço, ofertas, novos)
-- Carrinho com quantidade, persistência e barra de frete grátis
-- Favoritos com sincronização entre páginas
-- Busca em tempo real com autocomplete e histórico
-- Menu mobile responsivo e header compacto ao rolar
-- Breadcrumbs semânticos nas páginas internas
-- Banner LGPD de cookies e toolbar de acessibilidade
-- Service worker para cache offline básico
-- Dados estruturados JSON-LD (Schema.org)
-- Página 404 personalizada
+- Catálogo por departamento com ordenação, filtros, faixa de preço e paginação
+- Visualização em grade ou lista, sincronizada com a query string
+- Carrinho com quantidade, cupons, mini-carrinho, CSV, WhatsApp e impressão
+- Listas de compras salvas e reaproveitáveis
+- Favoritos, comparador de produtos e histórico de vistos recentemente
+- Busca em tempo real com autocomplete, histórico e tolerância a erros de digitação
+- Checkout multi-etapas com consulta de CEP (ViaCEP) e horário de entrega
+- Acompanhamento de pedido com timeline e programa de fidelidade
+- Tema claro/escuro respeitando `prefers-color-scheme`
+- Aviso "avise-me quando repor" para itens com estoque baixo
+- Preço por unidade normalizado (R$/kg, R$/L)
+- Banner LGPD de cookies, toolbar de acessibilidade e atalhos de teclado
+- PWA: service worker, manifest, banner de instalação e página offline
+- Dados estruturados JSON-LD (GroceryStore, ItemList, BreadcrumbList, FAQPage, SearchAction)
 - SEO (meta tags, sitemap, robots.txt, canonical, og:image)
 
 ## Desenvolvimento local
@@ -46,6 +54,16 @@ python -m http.server 8080
 ```
 
 Acesse `http://localhost:8080`
+
+## Qualidade
+
+```bash
+npm run validate
+```
+
+Valida sintaxe dos JSON, integridade referencial dos SKUs, links internos
+quebrados e imports de módulos ES. O mesmo check roda no GitHub Actions
+(`.github/workflows/ci.yml`) em cada push e pull request para `main`.
 
 ## Deploy
 

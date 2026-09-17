@@ -51,6 +51,17 @@ import { initReadingProgress } from './reading-progress.js';
 import { initCheckoutCelebrate } from './checkout-celebrate.js';
 import { initUrlFilters } from './url-filters.js';
 import { initStockUrgency } from './stock-urgency.js';
+import { initTheme } from './theme.js';
+import { initSavedLists } from './saved-lists.js';
+import { initBackInStock } from './back-in-stock.js';
+import { initPriceRange } from './price-range.js';
+import { fuzzySearch, suggestTerm } from './fuzzy-search.js';
+import { initPagination } from './pagination.js';
+import { renderOrderTracking } from './order-tracking.js';
+import { initLoyalty } from './loyalty.js';
+import { initNewsletterSignup } from './newsletter.js';
+import { injectExtraSchema } from './schema-extra.js';
+import { initLazyImages } from './lazy-images.js';
 
 async function bindCartActions(products) {
     document.addEventListener('click', (e) => {
@@ -164,10 +175,26 @@ function renderSearchPage(products) {
 
     function run() {
         const q = input.value;
-        const list = searchProducts(products, q);
-        results.innerHTML = list.length
-            ? list.map((p) => renderProductCard(p, { compact: true })).join('')
-            : `<p class="font-body-md text-on-surface-variant col-span-full">${q ? 'Nenhum produto encontrado.' : 'Digite para buscar produtos.'}</p>`;
+        let list = searchProducts(products, q);
+
+        // Sem resultado exato, cai para busca tolerante a erros de digitação.
+        if (q.trim() && !list.length) list = fuzzySearch(products, q);
+
+        if (list.length) {
+            results.innerHTML = list.map((p) => renderProductCard(p, { compact: true })).join('');
+        } else if (q.trim()) {
+            const suggestion = suggestTerm(products, q);
+            results.innerHTML = `<p class="font-body-md text-on-surface-variant col-span-full">Nenhum produto encontrado.${
+                suggestion ? ` Você quis dizer <button type="button" data-search-suggest="${suggestion}" class="font-label-bold text-secondary underline">${suggestion}</button>?` : ''
+            }</p>`;
+        } else {
+            results.innerHTML = '<p class="font-body-md text-on-surface-variant col-span-full">Digite para buscar produtos.</p>';
+        }
+
+        results.querySelector('[data-search-suggest]')?.addEventListener('click', (e) => {
+            input.value = e.currentTarget.dataset.searchSuggest;
+            run();
+        });
         syncFavoriteButtons();
         const url = new URL(window.location);
         if (q) url.searchParams.set('q', q);
@@ -185,9 +212,9 @@ function renderSearchPage(products) {
 
 function initNewsletter() {
     document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
-        form.dataset.validateForm = '';
         form.dataset.successMessage = 'Cadastro realizado! Em breve você receberá nossas ofertas.';
     });
+    initNewsletterSignup();
 }
 
 function injectSkipLink() {
@@ -216,6 +243,8 @@ async function init() {
     initCookieConsent();
     initBackToTop();
     initA11yToolbar();
+    initTheme();
+    initLazyImages();
     initFormValidation();
     initAuthForm();
     initAccordions();
@@ -258,8 +287,14 @@ async function init() {
     initExportCart();
     initDeliverySlot();
     initCopyCoupons();
+    initBackInStock(products);
+    initSavedLists();
+    initLoyalty();
+    renderOrderTracking();
     renderDepartmentPage(products);
     initViewToggle();
+    initPriceRange(products);
+    initPagination();
     initUrlFilters();
     initStockUrgency();
     renderCartPage(products);
@@ -275,6 +310,7 @@ async function init() {
     initNewsletter();
     syncFavoriteButtons();
     injectSchema(products);
+    injectExtraSchema();
 
     window.addEventListener('cart:updated', () => {
         updateCartBadge();
