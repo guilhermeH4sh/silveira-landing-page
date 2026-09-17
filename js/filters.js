@@ -50,10 +50,12 @@ export function initCatalogFilters(products, onRender) {
 
     let currentSort = 'default';
     let currentFilter = 'all';
+    let maxPrice = Infinity;
 
     function apply() {
         let list = onRender();
         list = filterProducts(list, currentFilter);
+        list = list.filter((p) => p.price <= maxPrice);
         list = sortProducts(list, currentSort);
         grid.innerHTML = list.length
             ? list.map((p) => renderProductCard(p, { compact: true })).join('')
@@ -74,6 +76,11 @@ export function initCatalogFilters(products, onRender) {
             btn.classList.add('filter-btn--active');
             apply();
         });
+    });
+
+    window.addEventListener('catalog:price-filter', (e) => {
+        maxPrice = e.detail?.max ?? Infinity;
+        apply();
     });
 
     apply();
