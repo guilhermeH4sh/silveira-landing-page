@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validação estática
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configura Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Smoke check (JSON, links e imports)
+        run: node scripts/validate.mjs
+
+      - name: Verifica arquivos de deploy do GitHub Pages
+        run: |
+          test -f .nojekyll || (echo "::error::.nojekyll ausente" && exit 1)
+          test -f sitemap.xml || (echo "::error::sitemap.xml ausente" && exit 1)
+          test -f robots.txt || (echo "::error::robots.txt ausente" && exit 1)
+          test -f offline.html || (echo "::error::offline.html ausente" && exit 1)
