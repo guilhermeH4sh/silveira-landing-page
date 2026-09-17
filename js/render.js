@@ -1,5 +1,7 @@
 import { formatPrice } from './cart.js';
 import { renderCardRating } from './reviews.js';
+import { renderUnitPrice } from './unit-price.js';
+import { renderNotifyButton } from './back-in-stock.js';
 
 let reviewsMap = {};
 
@@ -48,8 +50,11 @@ export function renderProductCard(product, options = {}) {
         <h3 class="font-label-bold text-label-bold mb-1">${product.name}</h3>
         ${renderCardRating(reviewsMap, product.id)}
         ${stockHtml(product.stock)}
+        ${renderNotifyButton(product)}
         <div class="font-price-display text-price-display text-primary mb-1">${formatPrice(product.price)}</div>
-        <div class="font-body-md text-[12px] text-on-surface-variant mb-3">${product.unit}</div>
+        <div class="font-body-md text-[12px] text-on-surface-variant">${product.unit}</div>
+        ${renderUnitPrice(product)}
+        <div class="mb-3"></div>
         <div class="flex gap-2">
             <button type="button" data-add-cart="${product.id}" class="brutalist-button flex-1 bg-secondary-container text-on-secondary-container py-3 font-label-bold uppercase border border-on-surface shadow-[2px_2px_0px_0px_#141a32] text-sm">
                 Adicionar
