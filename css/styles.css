@@ -545,6 +545,127 @@ html[data-theme='dark'] img:not([alt='']) {
     color: #0d6e00;
 }
 
+.dietary-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 0.35rem;
+}
+
+.dietary-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.15rem 0.4rem;
+    border: 1px solid #141a32;
+    line-height: 1.2;
+}
+
+.dietary--organico { background: #d8f5c8; }
+.dietary--integral { background: #f5e6c8; }
+.dietary--lactose { background: #c8e6f5; }
+.dietary--vegano { background: #c8f5e0; }
+.dietary--gluten { background: #f5e0c8; }
+
+.dietary-filter-btn.is-active {
+    background: #0d6e00;
+    color: #fff;
+}
+
+/* Flash countdown */
+.flash-countdown {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border: 3px solid #c0000a;
+    background: #fff5f4;
+    padding: 1rem 1.25rem;
+    box-shadow: 4px 4px 0 #c0000a;
+}
+
+.flash-countdown__timer {
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
+    font-size: 1.75rem;
+    letter-spacing: 0.05em;
+    color: #c0000a;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Voice search */
+.voice-search-btn {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0d6e00;
+    padding: 0.25rem;
+    z-index: 5;
+}
+
+.voice-search-btn.is-listening {
+    color: #c0000a;
+    animation: stockPulse 1s ease infinite;
+}
+
+form[data-search-form] .relative input[data-search-input] {
+    padding-right: 2.75rem;
+}
+
+/* Qty input */
+.qty-input {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Budget bar */
+.budget-bar {
+    height: 10px;
+    border: 2px solid #141a32;
+    background: #fff;
+}
+.budget-bar span {
+    display: block;
+    height: 100%;
+    background: #0d6e00;
+}
+.budget-bar span.is-over {
+    background: #c0000a;
+}
+
+/* Honeypot */
+.hp-field {
+    position: absolute !important;
+    left: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
+/* Swipe */
+.is-swiping {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    user-select: none;
+}
+
+/* Reduced motion */
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+}
+
 /* Celebração checkout */
 .celebrate-layer {
     pointer-events: none;

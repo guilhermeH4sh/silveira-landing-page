@@ -2,6 +2,8 @@ import { formatPrice } from './cart.js';
 import { renderCardRating } from './reviews.js';
 import { renderUnitPrice } from './unit-price.js';
 import { renderNotifyButton } from './back-in-stock.js';
+import { renderDietaryLabels } from './dietary-labels.js';
+import { qtyInputHtml } from './qty-input.js';
 
 let reviewsMap = {};
 
@@ -48,6 +50,7 @@ export function renderProductCard(product, options = {}) {
             <img class="object-cover h-full w-full" alt="${product.name}" src="${product.image}" loading="lazy" decoding="async" width="300" height="200"/>
         </a>
         <h3 class="font-label-bold text-label-bold mb-1">${product.name}</h3>
+        ${renderDietaryLabels(product.labels)}
         ${renderCardRating(reviewsMap, product.id)}
         ${stockHtml(product.stock)}
         ${renderNotifyButton(product)}
@@ -74,7 +77,7 @@ export function renderCartItem(item) {
             <p class="text-sm text-on-surface-variant">${formatPrice(item.price)} · ${item.unit}</p>
             <div class="flex items-center gap-2 mt-2">
                 <button type="button" data-qty-minus="${item.id}" class="w-8 h-8 border-2 border-on-surface font-bold" aria-label="Diminuir quantidade">−</button>
-                <span data-qty-value="${item.id}" class="font-label-bold w-8 text-center">${item.qty}</span>
+                ${qtyInputHtml(item)}
                 <button type="button" data-qty-plus="${item.id}" class="w-8 h-8 border-2 border-on-surface font-bold" aria-label="Aumentar quantidade">+</button>
                 <button type="button" data-remove-cart="${item.id}" class="ml-4 text-tertiary text-sm font-label-bold hover:underline">Remover</button>
             </div>

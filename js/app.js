@@ -62,6 +62,20 @@ import { initLoyalty } from './loyalty.js';
 import { initNewsletterSignup } from './newsletter.js';
 import { injectExtraSchema } from './schema-extra.js';
 import { initLazyImages } from './lazy-images.js';
+import { initReducedMotion } from './reduced-motion.js';
+import { initFlashCountdown } from './flash-countdown.js';
+import { initQtyInput } from './qty-input.js';
+import { initCartNotes } from './cart-notes.js';
+import { initBudgetGuard } from './budget-guard.js';
+import { initVoiceSearch } from './voice-search.js';
+import { initSwipeCarousel } from './swipe-carousel.js';
+import { initScrollRestore } from './scroll-restore.js';
+import { initDietaryFilter } from './dietary-labels.js';
+import { initPickupStore } from './pickup-store.js';
+import { initWebVitals } from './web-vitals.js';
+import { initWishlistShare } from './wishlist-share.js';
+import { initFormHoneypot } from './form-honeypot.js';
+import { initCartMerge } from './cart-merge.js';
 
 async function bindCartActions(products) {
     document.addEventListener('click', (e) => {
@@ -234,6 +248,7 @@ function markMainContent() {
 async function init() {
     initErrorHandler();
     initNetworkStatus();
+    initWebVitals();
     injectSeoMeta();
     injectSkipLink();
     markMainContent();
@@ -244,13 +259,17 @@ async function init() {
     initBackToTop();
     initA11yToolbar();
     initTheme();
+    initReducedMotion();
     initLazyImages();
     initFormValidation();
+    initFormHoneypot();
     initAuthForm();
+    initCartMerge();
     initAccordions();
     initCheckout();
     initCepLookup();
     initCheckoutCelebrate();
+    initPickupStore();
     syncAuthUI();
     updateCartBadge();
     registerServiceWorker();
@@ -263,6 +282,9 @@ async function init() {
     initImageZoom();
     initReadingProgress();
     initWelcomeTip();
+    initScrollRestore();
+    initQtyInput();
+    initSwipeCarousel();
 
     const grid = document.querySelector('[data-products-grid]');
     if (grid) showProductSkeleton(grid);
@@ -287,6 +309,7 @@ async function init() {
     initExportCart();
     initDeliverySlot();
     initCopyCoupons();
+    initFlashCountdown();
     initBackInStock(products);
     initSavedLists();
     initLoyalty();
@@ -294,12 +317,17 @@ async function init() {
     renderDepartmentPage(products);
     initViewToggle();
     initPriceRange(products);
+    initDietaryFilter();
     initPagination();
     initUrlFilters();
     initStockUrgency();
     renderCartPage(products);
+    initBudgetGuard();
+    initCartNotes();
     renderFavoritesPage(products);
+    initWishlistShare(products);
     renderSearchPage(products);
+    initVoiceSearch();
     renderRecentSection(products);
     renderComparePage(products);
     renderStoreLocator(stores);

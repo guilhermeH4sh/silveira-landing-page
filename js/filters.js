@@ -51,11 +51,15 @@ export function initCatalogFilters(products, onRender) {
     let currentSort = 'default';
     let currentFilter = 'all';
     let maxPrice = Infinity;
+    let dietary = 'all';
 
     function apply() {
         let list = onRender();
         list = filterProducts(list, currentFilter);
         list = list.filter((p) => p.price <= maxPrice);
+        if (dietary !== 'all') {
+            list = list.filter((p) => Array.isArray(p.labels) && p.labels.includes(dietary));
+        }
         list = sortProducts(list, currentSort);
         grid.innerHTML = list.length
             ? list.map((p) => renderProductCard(p, { compact: true })).join('')
@@ -80,6 +84,11 @@ export function initCatalogFilters(products, onRender) {
 
     window.addEventListener('catalog:price-filter', (e) => {
         maxPrice = e.detail?.max ?? Infinity;
+        apply();
+    });
+
+    window.addEventListener('catalog:dietary-filter', (e) => {
+        dietary = e.detail?.dietary || 'all';
         apply();
     });
 

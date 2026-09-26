@@ -31,6 +31,7 @@ const products = readJson('data/products.json');
 const reviews = readJson('data/reviews.json');
 const recipes = readJson('data/recipes.json');
 readJson('data/stores.json');
+readJson('data/promotions.json');
 readJson('manifest.json');
 readJson('package.json');
 
