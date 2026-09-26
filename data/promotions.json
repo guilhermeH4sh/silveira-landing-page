@@ -1,0 +1,20 @@
+{
+  "promotions": [
+    {
+      "id": "hortifruti-flash",
+      "title": "Hortifruti com 15% OFF",
+      "description": "Use o cupom FRESCOR15 até o fim do contador.",
+      "coupon": "FRESCOR15",
+      "endsAt": "2026-12-31T23:59:59-03:00",
+      "department": "hortifruti"
+    },
+    {
+      "id": "weekend-meat",
+      "title": "Açougue do fim de semana",
+      "description": "Cortes selecionados com frete grátis acima de R$150.",
+      "coupon": "SILVEIRA10",
+      "endsAt": "2026-10-15T23:59:59-03:00",
+      "department": "acougue"
+    }
+  ]
+}
