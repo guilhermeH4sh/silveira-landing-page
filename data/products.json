@@ -9,7 +9,10 @@
       "badge": "OFERTA",
       "image": "https://images.unsplash.com/photo-1546470427-e26264be0d16?auto=format&fit=crop&w=600&h=600&q=80",
       "stock": "baixo",
-      "description": "Produto selecionado Silveira, qualidade garantida."
+      "description": "Produto selecionado Silveira, qualidade garantida.",
+      "labels": [
+        "organico"
+      ]
     },
     {
       "id": "banana-prata",
@@ -19,7 +22,10 @@
       "department": "hortifruti",
       "image": "https://images.unsplash.com/photo-1571771894821-ce9b6d11b4e1?auto=format&fit=crop&w=600&h=600&q=80",
       "stock": "disponivel",
-      "description": "Produto selecionado Silveira, qualidade garantida."
+      "description": "Produto selecionado Silveira, qualidade garantida.",
+      "labels": [
+        "organico"
+      ]
     },
     {
       "id": "alface-crespa",
@@ -30,7 +36,11 @@
       "badge": "NOVO",
       "image": "https://images.unsplash.com/photo-1556801712-76c8eb07bbc9?auto=format&fit=crop&w=600&h=600&q=80",
       "stock": "disponivel",
-      "description": "Produto selecionado Silveira, qualidade garantida."
+      "description": "Produto selecionado Silveira, qualidade garantida.",
+      "labels": [
+        "organico",
+        "vegano"
+      ]
     },
     {
       "id": "cenoura",
@@ -40,7 +50,11 @@
       "department": "hortifruti",
       "image": "https://images.unsplash.com/photo-1447175008436-170170753486?auto=format&fit=crop&w=600&h=600&q=80",
       "stock": "disponivel",
-      "description": "Produto selecionado Silveira, qualidade garantida."
+      "description": "Produto selecionado Silveira, qualidade garantida.",
+      "labels": [
+        "organico",
+        "vegano"
+      ]
     },
     {
       "id": "picanha",
@@ -93,7 +107,10 @@
       "badge": "NOVO",
       "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&h=600&q=80",
       "stock": "disponivel",
-      "description": "Produto selecionado Silveira, qualidade garantida."
+      "description": "Produto selecionado Silveira, qualidade garantida.",
+      "labels": [
+        "integral"
+      ]
     },
     {
       "id": "pao-frances",
@@ -135,7 +152,11 @@
       "badge": "OFERTA",
       "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&h=600&q=80",
       "stock": "disponivel",
-      "description": "Produto selecionado Silveira, qualidade garantida."
+      "description": "Produto selecionado Silveira, qualidade garantida.",
+      "labels": [
+        "integral",
+        "vegano"
+      ]
     },
     {
       "id": "feijao-carioca",
@@ -145,7 +166,11 @@
       "department": "mercearia",
       "image": "https://images.unsplash.com/photo-1516684669134-de6f7c473a2a?auto=format&fit=crop&w=600&h=600&q=80",
       "stock": "disponivel",
-      "description": "Produto selecionado Silveira, qualidade garantida."
+      "description": "Produto selecionado Silveira, qualidade garantida.",
+      "labels": [
+        "vegano",
+        "sem-gluten"
+      ]
     },
     {
       "id": "azeite",
@@ -156,7 +181,11 @@
       "badge": "NOVO",
       "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&h=600&q=80",
       "stock": "disponivel",
-      "description": "Produto selecionado Silveira, qualidade garantida."
+      "description": "Produto selecionado Silveira, qualidade garantida.",
+      "labels": [
+        "vegano",
+        "sem-gluten"
+      ]
     },
     {
       "id": "macarrao",
@@ -176,7 +205,11 @@
       "department": "bebidas",
       "image": "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=600&h=600&q=80",
       "stock": "disponivel",
-      "description": "Produto selecionado Silveira, qualidade garantida."
+      "description": "Produto selecionado Silveira, qualidade garantida.",
+      "labels": [
+        "vegano",
+        "sem-gluten"
+      ]
     },
     {
       "id": "suco-laranja",
@@ -187,7 +220,11 @@
       "badge": "OFERTA",
       "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=600&h=600&q=80",
       "stock": "disponivel",
-      "description": "Produto selecionado Silveira, qualidade garantida."
+      "description": "Produto selecionado Silveira, qualidade garantida.",
+      "labels": [
+        "vegano",
+        "sem-gluten"
+      ]
     },
     {
       "id": "refrigerante-cola",
